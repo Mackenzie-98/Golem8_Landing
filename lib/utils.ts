@@ -7,9 +7,15 @@ export function cn(...inputs: ClassValue[]) {
 
 /**
  * Función para obtener la ruta correcta de assets
- * Compatible con GitHub Pages usando variables de entorno determinísticas
+ * Compatible con GitHub Pages usando variables de entorno automáticas
  */
 export function getAssetPath(path: string): string {
-  const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
-  return `${prefix}${path.startsWith('/') ? path : `/${path}`}`
+  // Asegurarse de que la ruta comience con /
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  
+  // actions/configure-pages@v5 automáticamente inyecta estas variables
+  const basePath = process.env.__NEXT_ROUTER_BASEPATH || ''
+  
+  // Retornar la ruta completa
+  return `${basePath}${normalizedPath}`
 }

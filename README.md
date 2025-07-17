@@ -133,3 +133,64 @@ npm run dev
 - **Componentes UI**: Basados en Shadcn/ui con customizaciones
 - **Componentes de página**: Modulares y reutilizables
 - **Utilidades**: Funciones helper en `lib/utils.ts` 
+
+El problema del CSS en GitHub Pages suele deberse a que los archivos estáticos (incluyendo el CSS generado por Next.js) requieren el prefijo del repositorio en producción, igual que las imágenes. Ya tienes configurado correctamente el `basePath` y `assetPrefix`, pero para que el CSS cargue bien en GitHub Pages, debes asegurarte de:
+
+1. **Acceder a la URL con el prefijo**  
+   Cuando sirvas localmente, accede a:  
+   ```
+   http://localhost:4000/agencia-latam-landing/
+   ```
+   y no a la raíz (`/`), porque el CSS y los assets están bajo ese prefijo.
+
+2. **Verifica el build en producción**  
+   Haz el build con:
+   ```
+   NODE_ENV=production npm run build
+   ```
+   y luego sirve la carpeta `out` con:
+   ```
+   npx serve out -l 4000
+   ```
+   y navega a `/agencia-latam-landing/`.
+
+3. **Asegúrate de que el nombre del repo sea EXACTO**  
+   En tu `next.config.mjs` debe ser:
+   ```js
+   const repo = 'agencia-latam-landing'
+   ```
+   y en el workflow:
+   ```yaml
+   NEXT_PUBLIC_BASE_PATH: /agencia-latam-landing
+   ```
+
+4. **No uses rutas absolutas sin prefijo**  
+   Si tienes referencias a `/assets/` o a `/static/` en tu código o HTML, deben pasar por `getAssetPath()` o usar el prefijo.
+
+---
+
+### ¿Por qué ocurre esto?
+
+- El CSS generado por Next.js se sirve desde `/_next/static/css/ARCHIVO.css`, pero con `basePath` y `assetPrefix` en producción, la ruta real es `/agencia-latam-landing/_next/static/css/ARCHIVO.css`.
+- Si accedes a la raíz (`/`), el navegador buscará el CSS en `/...` en vez de `/<repo>/...` y no lo encontrará.
+
+---
+
+### Solución rápida
+
+- **Siempre accede a la URL con el prefijo** en local y en GitHub Pages.
+- Si el problema persiste, limpia el caché del navegador o fuerza recarga (Ctrl+Shift+R).
+
+---
+
+### Si el problema sigue:
+
+- Asegúrate de que el archivo `out/index.html` tenga los links CSS así:
+  ```html
+  <link rel="stylesheet" href="/agencia-latam-landing/_next/static/css/ARCHIVO.css" ...>
+  ```
+- Si ves `/assets/` o `/_next/` sin el prefijo, revisa que el build se haya hecho con `NODE_ENV=production` y que el repo esté bien escrito.
+
+---
+
+¿Quieres que fuerce el build y te muestre el HTML resultante para verificar que el CSS está bien referenciado? ¿O necesitas que revise algún archivo específico? 
