@@ -216,4 +216,96 @@ export default function CaseStudiesPage() {
                       <div className="p-6 sm:p-8 lg:p-12">
                         <div className="mb-6">
                           <Badge className="mb-4 bg-gray-100 text-gray-800">{study.industry}</Badge>
-                          <h2 className="text-\
+                          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                            {study.title}
+                          </h2>
+                          <div className="flex items-center gap-3 mb-6">
+                            <Image
+                              src={study.clientImage || "/placeholder.svg"}
+                              alt={study.client}
+                              width={40}
+                              height={40}
+                              className="rounded-full"
+                            />
+                            <div>
+                              <div className="font-medium text-gray-900">{study.client}</div>
+                              <div className="text-sm text-gray-500">Timeline: {study.timeline}</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Challenge */}
+                        <div className="mb-8">
+                          <h3 className="text-lg font-semibold text-gray-900 mb-3">Desafío</h3>
+                          <p className="text-gray-600 leading-relaxed">{study.challenge}</p>
+                        </div>
+
+                        {/* Solution */}
+                        <div className="mb-8">
+                          <h3 className="text-lg font-semibold text-gray-900 mb-3">Solución</h3>
+                          <p className="text-gray-600 leading-relaxed">{study.solution}</p>
+                        </div>
+
+                        {/* Results */}
+                        <div className="mb-8">
+                          <h3 className="text-lg font-semibold text-gray-900 mb-4">Resultados</h3>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {study.results.map((result, idx) => (
+                              <div key={idx} className="bg-gray-50 rounded-lg p-4">
+                                <div className="text-sm font-medium text-gray-900 mb-1">{result.metric}</div>
+                                <div className="flex items-center gap-2 text-sm text-gray-600">
+                                  <span>{result.before}</span>
+                                  <span>→</span>
+                                  <span className="font-semibold text-green-600">{result.after}</span>
+                                </div>
+                                <div className="text-xs text-green-600 font-medium mt-1">{result.improvement}</div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Testimonial */}
+                        <div className="bg-blue-50 rounded-lg p-6">
+                          <div className="text-blue-600 mb-2">💬 Testimonio</div>
+                          <blockquote className="text-gray-900 italic">"{study.testimonial}"</blockquote>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 sm:py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+              ¿Listo para ser nuestro próximo caso de éxito?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Únete a más de 200 empresas que ya transformaron sus resultados con nosotros
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg">
+                <Phone className="w-5 h-5 mr-2" />
+                Llamada Gratuita
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg">
+                Ver Más Casos
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  )
+}
