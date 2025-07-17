@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Crown, Palette } from "lucide-react"
+import { getAssetPath } from "@/lib/utils"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
