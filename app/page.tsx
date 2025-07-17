@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
+import { getAssetPath } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -66,13 +67,13 @@ export default function HomePage() {
   const [openModal, setOpenModal] = useState(null)
 
   const logos = [
-    { name: "AWS", image: "/assets/awsp.png" },
-    { name: "n8n", image: "/assets/n8n.png" },
-    { name: "Vercel", image: "/assets/vercel.png" },
-    { name: "React", image: "/assets/react.png" },
-    { name: "WhatsApp", image: "/assets/wsp.png" },
-    { name: "Figma", image: "/assets/figma.png" },
-    { name: "App Store", image: "/assets/appstore.png" },
+    { name: "AWS", image: getAssetPath("/assets/awsp.png") },
+    { name: "n8n", image: getAssetPath("/assets/n8n.png") },
+    { name: "Vercel", image: getAssetPath("/assets/vercel.png") },
+    { name: "React", image: getAssetPath("/assets/react.png") },
+    { name: "WhatsApp", image: getAssetPath("/assets/wsp.png") },
+    { name: "Figma", image: getAssetPath("/assets/figma.png") },
+    { name: "App Store", image: getAssetPath("/assets/appstore.png") },
   ]
 
   const serviceDetails = {
@@ -448,7 +449,7 @@ export default function HomePage() {
     {
       name: "Ana Martínez",
       role: "CEO, Boutique Luna",
-      image: "/assets/refmujer1.png",
+              image: getAssetPath("/assets/refmujer1.png"),
       content:
         "En 4 meses pasamos de $15K a $45K mensuales. La nueva tienda online y las automatizaciones cambiaron completamente nuestro negocio.",
       result: "+200% en ventas",
@@ -457,7 +458,7 @@ export default function HomePage() {
     {
       name: "Carlos Ruiz",
       role: "Fundador, TechConsulting",
-      image: "/assets/refhombre1.jpg",
+              image: getAssetPath("/assets/refhombre1.jpg"),
       content:
         "El chatbot y las automatizaciones nos ahorran 25 horas semanales. Ahora podemos atender 3x más clientes con el mismo equipo.",
       result: "25h ahorradas/semana",
@@ -466,7 +467,7 @@ export default function HomePage() {
     {
       name: "María González",
       role: "Directora, EduOnline",
-      image: "/assets/refmujer2.png",
+              image: getAssetPath("/assets/refmujer2.png"),
       content:
         "La plataforma LMS que desarrollaron superó nuestras expectativas. Hemos escalado de 100 a 1,500 estudiantes en 6 meses.",
       result: "+1,400% crecimiento",

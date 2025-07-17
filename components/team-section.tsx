@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Crown, Palette } from "lucide-react"
+import { getAssetPath } from "@/lib/utils"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -18,7 +19,7 @@ export default function TeamSection() {
       name: "Edinsson Melo",
       role: "CEO & CTO",
       subtitle: "Founder",
-      image: "/assets/edinsson.jpeg",
+      image: getAssetPath("/assets/edinsson.jpeg"),
       description: "Visionario tecnológico con +8 años liderando transformaciones digitales",
       icon: Crown,
       iconColor: "text-yellow-600",
@@ -29,7 +30,7 @@ export default function TeamSection() {
       name: "Yannimar Borja",
       role: "CMO & Design Specialist",
       subtitle: "Co-Founder",
-      image: "/assets/yanni.jpg",
+      image: getAssetPath("/assets/yanni.jpg"),
       description: "Experta en branding y estrategia digital que convierte marcas en experiencias",
       icon: Palette,
       iconColor: "text-purple-600",
