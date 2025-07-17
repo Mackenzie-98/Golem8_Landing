@@ -1,0 +1,71 @@
+# Agencia LATAM Landing Page - Project Intelligence
+
+## Project Context
+- **Target**: Latin American digital agency landing page for PYMEs
+- **Language**: Spanish-first, targeting Latin American market
+- **Focus**: Lead generation and automation integration (n8n workflows)
+- **Value Prop**: "Más clientes y menos tareas manuales para tu PYME"
+
+## Technical Stack Patterns
+- **Framework**: Next.js 15 with App Router (latest features)
+- **Styling**: Tailwind CSS + Shadcn/ui component library
+- **Animation**: Framer Motion for smooth transitions
+- **Forms**: React Hook Form with multi-step progression
+- **Icons**: Lucide React for consistency
+- **Type Safety**: Full TypeScript implementation
+
+## Development Workflow
+- **Memory Bank**: Always read ALL memory bank files before starting work
+- **Component Strategy**: Use Shadcn/ui components, extend with custom styling
+- **Mobile-First**: Design and test mobile experience first
+- **Performance**: Optimize for Core Web Vitals and conversion
+
+## Key Business Requirements
+- **Lead Capture**: Multi-step forms with progression indicators
+- **WhatsApp Integration**: Floating CTA button for immediate contact
+- **Trust Building**: Testimonials, case studies, team presentation
+- **Conversion Focus**: Multiple CTAs throughout the page
+- **Automation Ready**: Structure data for n8n workflow integration
+
+## Code Quality Standards
+- **TypeScript**: Strict type checking, proper interfaces
+- **Components**: Modular, reusable, accessible
+- **Performance**: Lazy loading, optimized images, minimal bundle size
+- **Responsive**: Mobile-first design with Tailwind breakpoints
+- **Animation**: Smooth Framer Motion transitions, avoid janky effects
+
+## Content Strategy
+- **Spanish Language**: All content in Spanish for LATAM market
+- **PYME Focus**: Small/medium business pain points and solutions
+- **Service Integration**: Present branding + web + automation as unified solution
+- **Social Proof**: Emphasize results, testimonials, and case studies
+- **Urgency**: Time-sensitive offers and rapid response promises
+
+## Critical Integration Points
+- **n8n Workflows**: Form data must be structured for automation
+- **WhatsApp**: Floating CTA for immediate communication
+- **Analytics**: Conversion tracking and user behavior monitoring
+- **Performance**: Core Web Vitals optimization for SEO and UX
+
+## Common Patterns to Follow
+- **Form Progression**: Multi-step with clear progress indicators
+- **CTA Placement**: Multiple strategic conversion points
+- **Animation Timing**: Staggered entrance effects for sections
+- **Color Scheme**: Blue gradients with cyan accents for trust
+- **Layout**: Grid-based responsive design with proper spacing
+
+## Known Technical Considerations
+- **File Structure**: Keep components modular in `/components/ui/`
+- **Styling**: Use Tailwind utilities, avoid custom CSS when possible
+- **Performance**: Optimize images, lazy load non-critical content
+- **Accessibility**: WCAG compliance, proper ARIA attributes
+- **SEO**: Meta tags, structured data, performance optimization
+
+## Project Evolution Notes
+- Started with basic Next.js setup
+- Implemented comprehensive component library
+- Built multi-step form system
+- Added animation layer with Framer Motion
+- Next: n8n integration and performance optimization
+
+Remember: This is a conversion-focused landing page for a Latin American market. Every decision should optimize for lead generation and user trust. 
